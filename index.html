@@ -4,14 +4,124 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EKI VOCAB</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+      color: #333;
+      text-align: center;
+    }
+
+    header {
+      background: #263b50;
+      color: white;
+      padding: 30px 15px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 15px;
+      background: white;
+    }
+
+    button {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 8px;
+      background: #dce5ec;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    button:hover {
+      background: #b8ccdc;
+    }
+
+    main {
+      padding: 30px 15px;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+  </style>
 </head>
 
 <body>
 
-  <h1>EKI VOCAB</h1>
+  <header>
+    <h1>EKI VOCAB</h1>
+    <p>Run, Learn, Collect.</p>
+  </header>
 
-  <p>Welcome to EKI VOCAB!</p>
-  <p>Run, Learn, Collect.</p>
+  <nav>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('learning')">Learning</button>
+    <button onclick="showPage('gacha')">Gacha</button>
+    <button onclick="showPage('collection')">Collection</button>
+    <button onclick="showPage('profile')">Profile</button>
+  </nav>
+
+  <main>
+
+    <section id="home" class="page active">
+      <h2>Welcome to EKI VOCAB!</h2>
+      <p>Learn languages through your passion.</p>
+    </section>
+
+    <section id="learning" class="page">
+      <h2>Learning Center</h2>
+      <button onclick="showPage('english')">English</button>
+      <button onclick="showPage('japanese')">日本語</button>
+    </section>
+
+    <section id="english" class="page">
+      <h2>English Learning</h2>
+      <p>Vocabulary · Grammar · Reading · Listening</p>
+    </section>
+
+    <section id="japanese" class="page">
+      <h2>日本語学習</h2>
+      <p>単語 · 文法 · 読解 · 聴解</p>
+    </section>
+
+    <section id="gacha" class="page">
+      <h2>Gacha</h2>
+      <p>Coming Soon!</p>
+    </section>
+
+    <section id="collection" class="page">
+      <h2>Collection</h2>
+      <p>Your collection will appear here.</p>
+    </section>
+
+    <section id="profile" class="page">
+      <h2>My Profile</h2>
+      <p>Welcome!</p>
+    </section>
+
+  </main>
+
+  <script>
+    function showPage(pageId) {
+      const pages = document.querySelectorAll('.page');
+
+      pages.forEach(function(page) {
+        page.classList.remove('active');
+      });
+
+      document.getElementById(pageId).classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
